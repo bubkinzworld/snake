@@ -1,0 +1,206 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, sans-serif;
+  background: #f4f4f1;
+  color: #1f1f1f;
+  --panel-bg: #ffffff;
+  --panel-border: #d7d4cc;
+  --board-bg: #efece5;
+  --snake: #2f6b3d;
+  --snake-head: #1f4b2a;
+  --enemy: #c84b4b;
+  --enemy-head: #922d2d;
+  --food: #be4d25;
+  --button-bg: #f2efe8;
+  --button-border: #cfc9bc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+
+.panel {
+  width: min(100%, 720px);
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.header,
+.stats,
+.speed-controls,
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #686357;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.button,
+.control-button {
+  border: 1px solid var(--button-border);
+  background: var(--button-bg);
+  color: inherit;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.button:hover,
+.control-button:hover {
+  background: #eae4d8;
+}
+
+.stats {
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.speed-controls {
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.speed-controls .button {
+  flex: 1;
+}
+
+.stat {
+  flex: 1;
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 12px;
+  background: #faf8f3;
+  min-width: 120px;
+}
+
+.stat-label,
+.instructions {
+  color: #686357;
+}
+
+.board-wrap {
+  border: 1px solid var(--panel-border);
+  background: var(--board-bg);
+  border-radius: 12px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.board {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 20 / 12;
+  max-height: min(52vh, 420px);
+  gap: 2px;
+  touch-action: none;
+  user-select: none;
+}
+
+.cell {
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.cell.snake {
+  background: var(--snake);
+}
+
+.cell.head {
+  background: var(--snake-head);
+}
+
+.cell.food {
+  background: var(--food);
+}
+
+.cell.enemy {
+  background: var(--enemy);
+}
+
+.cell.enemy-head {
+  background: var(--enemy-head);
+}
+
+.instructions {
+  margin: 14px 0;
+  line-height: 1.4;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.controls-row {
+  gap: 10px;
+}
+
+@media (min-width: 720px) and (pointer: fine) {
+  .controls {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding: 8px;
+  }
+
+  .panel {
+    padding: 12px;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .board {
+    max-height: 40vh;
+  }
+
+  .button,
+  .control-button {
+    padding: 9px 12px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+}

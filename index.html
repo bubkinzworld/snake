@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel">
+        <div class="header">
+          <div>
+            <p class="eyebrow">Classic Game</p>
+            <h1>Snake</h1>
+          </div>
+          <button id="restart-button" class="button" type="button">Restart</button>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-label">Player Score</span>
+            <strong id="player-score">0</strong>
+          </div>
+          <div class="stat">
+            <span class="stat-label">CPU Score</span>
+            <strong id="enemy-score">0</strong>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Status</span>
+            <strong id="status">Ready</strong>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Speed</span>
+            <strong id="speed-label">Normal</strong>
+          </div>
+        </div>
+
+        <div class="speed-controls" aria-label="Speed controls">
+          <button id="slower-button" class="button" type="button">Slower</button>
+          <button id="faster-button" class="button" type="button">Faster</button>
+          <button id="demo-button" class="button" type="button">Demo Walls Off</button>
+        </div>
+
+        <div class="board-wrap">
+          <div
+            id="game-board"
+            class="board"
+            role="grid"
+            aria-label="Snake game board"
+          ></div>
+        </div>
+
+        <p class="instructions">
+          Use arrow keys or WASD to move. Press space to pause. Restart after game over.
+        </p>
+
+        <div class="controls" aria-label="On-screen controls">
+          <button class="control-button" type="button" data-direction="up">Up</button>
+          <div class="controls-row">
+            <button class="control-button" type="button" data-direction="left">Left</button>
+            <button class="control-button" type="button" data-action="pause">Pause</button>
+            <button class="control-button" type="button" data-direction="right">Right</button>
+          </div>
+          <button class="control-button" type="button" data-direction="down">Down</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./src/game.js"></script>
+  </body>
+</html>
